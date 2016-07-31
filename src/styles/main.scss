@@ -1,0 +1,51 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:100,400);
+
+$main-bg-color: #f1f2f0;
+$accent-blue: #37bbe4;
+$accent-gray: #e1e0dd;
+$accent-black: #35342f;
+$accent-orange: #ec6b2d;
+$accent-red: #dd6464;
+
+body {
+  background-color: $main-bg-color;
+  color: $accent-black;
+  font-family: 'Raleway', sans-serif;
+}
+
+.main-app-container {
+
+}
+#header {
+  display: flex;
+
+  .add-wrapper {
+    flex: 1 1 auto;
+  }
+  .project-stats {
+    flex-basis: 100px;
+  }
+}
+#status-list {
+  display: flex;
+  .status-col{
+    flex: 1 1 auto;
+    .title{
+      display: flex;
+      .name{
+        flex: 1 1 auto;
+      }
+      .count{
+        flex-basis: 70px;
+      }
+    }
+  }
+  ul.status-list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li{
+
+    }
+  }
+}

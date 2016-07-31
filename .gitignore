@@ -1,9 +1,6 @@
-.DS_STORE
-*.log
-
 node_modules
-
-dist
+*.log
+.DS_Store
+lib
 coverage
-
-.idea/
+dist

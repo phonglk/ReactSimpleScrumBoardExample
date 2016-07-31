@@ -1,307 +1,151 @@
-# React Redux Starter Kit
+# Simple Redux Boilerplate
 
-[![Join the chat at https://gitter.im/davezuko/react-redux-starter-kit](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/davezuko/react-redux-starter-kit?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Build Status](https://travis-ci.org/davezuko/react-redux-starter-kit.svg?branch=master)](https://travis-ci.org/davezuko/react-redux-starter-kit?branch=master)
-[![dependencies](https://david-dm.org/davezuko/react-redux-starter-kit.svg)](https://david-dm.org/davezuko/react-redux-starter-kit)
-[![devDependency Status](https://david-dm.org/davezuko/react-redux-starter-kit/dev-status.svg)](https://david-dm.org/davezuko/react-redux-starter-kit#info=devDependencies)
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+A simple, yet comprehensive React + Redux application, complete with DevTools.
 
-This starter kit is designed to get you up and running with a bunch of awesome new front-end technologies, all on top of a configurable, feature-rich webpack build system that's already setup to provide hot reloading, CSS modules with Sass support, unit testing, code coverage reports, bundle splitting, and a whole lot more.
+Author: [@tsaiDavid](https://github.com/tsaiDavid/) | [www.davidtsai.codes](https://www.davidtsai.codes)
 
-The primary goal of this project is to remain as **unopinionated** as possible. Its purpose is not to dictate your project structure or to demonstrate a complete sample application, but to provide a set of tools intended to make front-end development robust, easy, and, most importantly, fun. Check out the full feature list below!
+*Let's make this a community effort! Many thanks for all the great suggestions and help that's already underway!*
 
-Finally, This project wouldn't be possible without the help of our many contributors, so [thank you](#thank-you) for all of your help.
+***
 
-## Table of Contents
-1. [Features](#features)
-1. [Requirements](#requirements)
-1. [Getting Started](#getting-started)
-1. [Application Structure](#application-structure)
-1. [Development](#development)
-  1. [Developer Tools](#developer-tools)
-  1. [Routing](#routing)
-1. [Testing](#testing)
-1. [Deployment](#deployment)
-1. [Build System](#build-system)
-  1. [Configuration](#configuration)
-  1. [Root Resolve](#root-resolve)
-  1. [Globals](#globals)
-  1. [Styles](#styles)
-  1. [Server](#server)
-  1. [Production Optimization](#production-optimization)
-1. [Learning Resources](#learning-resources)
-1. [FAQ](#troubleshooting)
-1. [Thank You](#thank-you)
+### Overview
 
-## Features
-* [react](https://github.com/facebook/react)
-* [redux](https://github.com/rackt/redux)
-* [react-router](https://github.com/rackt/react-router)
-* [react-router-redux](https://github.com/rackt/react-router-redux)
-* [webpack](https://github.com/webpack/webpack)
-* [babel](https://github.com/babel/babel)
-* [koa](https://github.com/koajs/koa)
-* [karma](https://github.com/karma-runner/karma)
-* [eslint](http://eslint.org)
+*Available Branches:*
 
-## Requirements
-* node `^4.2.0`
-* npm `^3.0.0`
+*Checkout a branch to start with exactly what you need, explore others to learn how additional features might be implemented!*
 
-## Getting Started
+| Branch               | Description                             | Status                  |
+|----------------------|-----------------------------------------|-------------------------|
+| `master`             | Basic React, Redux, with DevTools.      | Complete, with SCSS now |
+| `react-router-redux` | Adds 'react-router' and Redux bindings! | In Progress!            |
 
-After confirming that your development environment meets the specified [requirements](#requirements), you can create a new project based on `react-redux-starter-kit` in one of two ways:
+This is the perfect way to start any React + Redux application - **especially if you're looking for a middle-ground**. Minimize bulk and overhead - and get the exact amount of tools and configuration necessary to hit the ground running!
 
-### Install from source
+With educational comments and documentation sprinkled throughout this app, you'll learn and see how all the pieces come together - from Webpack and Babel all the way through React with Redux.
 
-First, clone or download:
+Designed to keep style/structure as un-opinionated as possible,  to offer you - the user - as much creativity and flexibility when it comes to your needs. As this is stil a **work-in-progress**, do reach out if you have suggestions, fixes, etc! If you want to help, a basic Roadmap can be found below!
 
-```bash
-$ git clone https://github.com/davezuko/react-redux-starter-kit.git
-// or
-$ wget -O react-redux-starter-kit.zip https://github.com/davezuko/react-redux-starter-kit/archive/master.zip
-$ unzip react-redux-starter-kit.zip
+This project features a super simple UI - just for you to see how everything is wired up, using the classic counter example:
+
+![](https://fat.gfycat.com/WarlikeFrightenedGraywolf.gif)
+
+If you found this helpful, please star/fork/follow me on **[GitHub](https://github.com/tsaiDavid/)** and follow me on **[Twitter](https://twitter.com/tftsai)**! 
+
+### Features
+
+##### Basic:
+  - React + Redux
+  - Babel 6 w/ basic presets and transform
+  - Webpack w/ basic dev and prod configurations
+  - Express development server; easily roll out a production enabled server of your own
+  - Eslint w/ basic configs
+  - Redux DevTools + Logger middleware - easily removable/replaceable based on your needs
+
+##### Optional:
+  - *React Router + bindings (checkout `react-router-redux` branch for more info)*
+
+***
+
+### Requirements
+  - `node 5.0.0` and higher!
+    - [*you can use a version manager like `n`*](https://github.com/tj/n)
+
+***
+
+### FAQ
+
+  - Why another React and Redux boilerplate?
+  > There are tons of great boilerplates out there, some of them with some pretty advanced functionality! But they aren't good for learning the holistic approach of getting a React/Redux app up and running. I wanted to create a boilerplate that would encourage and help the user learn how everything is set up, from Babel and Webpack through conditional requires and giving them the DevTools they need!
+
+  - Why not use WebpackDevServer?
+  > The included `devServer.js` is a Node/Express server - mainly because most people will end up creating applications that rely on a Node server! Using the `webpack-dev-middleware` and `webpack-hot-middleware` allow us to get syntax errors displayed in an overlay, which using WebpackDevServer doesn't allow for.
+
+  >![](https://cloud.githubusercontent.com/assets/1539088/11611771/ae1a6bd8-9bac-11e5-9206-42447e0fe064.gif)
+
+  - How can I get this thing into production?
+  > I'm currently working on including a guide or walkthrough, but at the moment all you have is a `devServer.js`, your first step would probably include creating a separate `server.js` file and going from there - just be sure to see how the application relies on the NODE_ENV variables to select between "dev" and "prod" files!
+
+  - What is this missing?
+  > At the moment, I have not enabled the loading of SASS, but I do plan on it. As your apps grow in size, you might want to consider creating a `utils` directory. Lastly, be sure to follow @gaeron's tips on reducer composition!
+
+### Usage
+
+##### Getting Started:
+
+To begin, fork this repo and then clone those contents down!
+
+Ideally, fork this boilerplate, then clone.
+```
+$ git clone https://github.com/YOUR_GITHUB_USERNAME_HERE/simple-redux-boilerplate.git
 ```
 
-Then, rename to your project name and change into the directory:
-
-```bash
-$ mv react-redux-starter-kit <my-project-name>
-$ cd <my-project-name>
+Install required dependencies. 
+(*Did you make sure you have the right version of Node?*)
+```
+npm install
 ```
 
-### Alternatively, install via `redux-cli`
-
-If not already installed (globally):
-
-```bash
-$ npm i redux-cli -g
+Run development server, complete with DevTools and related configuration.
+```
+npm run dev
 ```
 
-Then, create a new project:
-
-```bash
-$ redux new <my-project-name>
-$ cd <my-project-name>
+You're now ready to get working! *(enter command or visit via browser directly)*
+```
+open http://localhost:3000/
 ```
 
-### Install dependencies, and check to see it works
+***
 
-```bash
-$ npm install                   # Install project dependencies
-$ npm start                     # Compile and launch
-```
-If everything works, you should see the following:
+##### Next Steps & Other Notes:
 
-<img src="http://i.imgur.com/zR7VRG6.png?2" />
+Now that your development server is up and running, you will see that you have your Redux DevTools available for you to use. The keyboard shortcuts available follow the generally accepted config - but you're free to make changes to them here: `containers/DevTools.js`.
 
-While developing, you will probably rely mostly on `npm start`; however, there are additional scripts at your disposal:
+***To toggle the DevTool panel during development:***
+<kbd>CTRL</kbd> + <kbd>H</kbd>
 
-|`npm run <script>`|Description|
-|------------------|-----------|
-|`start`|Serves your app at `localhost:3000`. HMR will be enabled in development.|
-|`compile`|Compiles the application to disk (`~/dist` by default).|
-|`dev`|Same as `npm start`, but enables nodemon for the server as well.|
-|`dev:no-debug`|Same as `npm run dev` but disables devtool instrumentation.|
-|`test`|Runs unit tests with Karma and generates a coverage report.|
-|`test:dev`|Runs Karma and watches for changes to re-run tests; does not generate coverage reports.|
-|`deploy`|Runs linter, tests, and then, on success, compiles your application to disk.|
-|`deploy:dev`|Same as `deploy` but overrides `NODE_ENV` to "development".|
-|`deploy:prod`|Same as `deploy` but overrides `NODE_ENV` to "production".|
-|`lint`|Lint all `.js` files.|
-|`lint:fix`|Lint and fix all `.js` files. [Read more on this](http://eslint.org/docs/user-guide/command-line-interface.html#fix).|
+***Change the DevTool panel's position during development:***
+<kbd>CTRL</kbd> + <kbd>Q</kbd>
 
-## Application Structure
+***
 
-The application structure presented in this boilerplate is **fractal**, where functionality is grouped primarily by feature rather than file type. Please note, however, that this structure is only meant to serve as a guide, it is by no means prescriptive. That said, it aims to represent generally accepted guidelines and patterns for building scalable applications. If you wish to read more about this pattern, please check out this [awesome writeup](https://github.com/davezuko/react-redux-starter-kit/wiki/Fractal-Project-Structure) by [Justin Greenberg](https://github.com/justingreenberg).
+### Roadmap
 
-```
-.
-├── bin                      # Build/Start scripts
-├── blueprints               # Blueprint files for redux-cli
-├── build                    # All build-related configuration
-│   └── webpack              # Environment-specific configuration files for webpack
-├── config                   # Project configuration settings
-├── server                   # Koa application (uses webpack middleware)
-│   └── main.js              # Server application entry point
-├── src                      # Application source code
-│   ├── index.html           # Main HTML page container for app
-│   ├── main.js              # Application bootstrap and rendering
-│   ├── components           # Reusable Presentational Components
-│   ├── containers           # Reusable Container Components
-│   ├── layouts              # Components that dictate major page structure
-│   ├── redux                # "Ducks" location...
-│   │   └── modules          # reducer, action, creators not part of a route
-│   ├── routes               # Main route definitions and async split points
-│   │   ├── index.js         # Bootstrap main application routes with store
-│   │   └── Home             # Fractal route
-│   │       ├── index.js     # Route definitions and async split points
-│   │       ├── assets       # Assets required to render components
-│   │       ├── components   # Presentational React Components
-│   │       ├── container    # Connect components to actions and store
-│   │       ├── modules      # Collections of reducers/constants/actions
-│   │       └── routes **    # Fractal sub-routes (** optional)
-│   ├── static               # Static assets (not imported anywhere in source code)
-│   ├── store                # Redux-specific pieces
-│   │   ├── createStore.js   # Create and instrument redux store
-│   │   └── reducers.js      # Reducer registry and injection
-│   └── styles               # Application-wide styles (generally settings)
-└── tests                    # Unit tests
-```
+ - [x] Base boilerplate design off of "react-transform-boilerplate"
+ - [x] Begin work on a complementary Yeoman generated package
+ - [x] Implement Redux
+ - [x] Implement Redux DevTools
+ - [x] Optional Redux Logger Middleware is included (pop open console to see logging)
+ - [x] Conditional require statements of `configureStore.js` and `Root.js` - based on whether user is in development or production environments
+ - [ ] Clean up Redux actions, reducers, constants
+ - [ ] Add basic styles and enable webpack compilation of CSS/SASS
+ - [ ] Provide additional documentation and example of pushing to production
 
-## Development
+***
 
-#### Developer Tools
+### Style Guide
 
-**We recommend using the [Redux DevTools Chrome Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd).**
-Using the chrome extension allows your monitors to run on a separate thread and affords better performance and functionality. It comes with several of the most popular monitors, is easy to configure, filters actions, and doesn’t require installing any packages.
+Code style can be a tricky subject - I've instead decided to rely on the ever trustworthy configurations that AirBnb follows!
 
-However, adding the DevTools components to your project is simple. First, grab the packages from npm:
+This project relies on `eslint-config-airbnb`.
+Learn more here: [AirBnb Style Guide](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb)
 
-```bash
-npm i --save-dev redux-devtools redux-devtools-log-monitor redux-devtools-dock-monitor
-```
+***
 
-Then follow the [manual integration walkthrough](https://github.com/gaearon/redux-devtools/blob/master/docs/Walkthrough.md).
+### Credits
 
-#### `redux-cli`
+##### Other Contributors:
+ - [@yilenpan](https://github.com/yilenpan) | *working on react-router-redux!*
 
-```bash
-npm install redux-cli --save-dev
-```
+>This boilerplate is initially based on [@gaeron's](https://github.com/gaeron) awesome [react-transform-boilerplate](https://github.com/gaearon/react-transform-boilerplate).
 
-### Routing
-We use `react-router` [route definitions](https://github.com/reactjs/react-router/blob/master/docs/API.md#plainroute) (`<route>/index.js`) to define units of logic within our application. See the [application structure](#application-structure) section for more information.
+This project supports [Babel 6](https://github.com/babel/babel), with reference implementations of:
 
-## Testing
-To add a unit test, simply create a `.spec.js` file anywhere in `~/tests`. Karma will pick up on these files automatically, and Mocha and Chai will be available within your test without the need to import them. If you are using `redux-cli`, test files should automatically be generated when you create a component or redux module.
+ **[babel-plugin-react-transform](https://github.com/gaearon/babel-plugin-react-transform)**. It can be used as a boilerplate for quickly getting a new project up and running with a few useful transforms:
 
-Coverage reports will be compiled to `~/coverage` by default. If you wish to change what reporters are used and where reports are compiled, you can do so by modifying `coverage_reporters` in `~/config/index.js`.
+* [**react-transform-hmr**](https://github.com/gaearon/react-transform-hmr) - enables hot reloading react components
+* [**react-transform-catch-errors**](https://github.com/gaearon/react-transform-catch-errors) - catches errors inside `render()`
 
-## Deployment
-Out of the box, this starter kit is deployable by serving the `~/dist` folder generated by `npm run deploy` (make sure to specify your target `NODE_ENV` as well). This project does not concern itself with the details of server-side rendering or API structure, since that demands an opinionated structure that makes it difficult to extend the starter kit. However, if you do need help with more advanced deployment strategies, here are a few tips:
+For convenience they are packed in a single preset called [**react-transform-hmre**](https://github.com/danmartinez101/babel-preset-react-hmre) but you can make your own.
 
-### Static Deployments
-If you are serving the application via a web server such as nginx, make sure to direct incoming routes to the root `~/dist/index.html` file and let react-router take care of the rest. If you are unsure of how to do this, you might find [this documentation](https://github.com/reactjs/react-router/blob/master/docs/guides/Histories.md#configuring-your-server) helpful. The Koa server that comes with the starter kit is able to be extended to serve as an API or whatever else you need, but that's entirely up to you.
-
-### Heroku
-
-Heroku has `nodejs buildpack` script that does the following when you deploy your app to Heroku.
-1. Find `packages.json` in the root directory.
-2. Install `nodejs` and `npm` packages.
-3. Run `npm postinstall script`
-4. Run `npm start`
-
-Therefore, you need to modify `package.json` before deploying to Heroku. Make the following changes in the `scripts` section of `package.json`.
-
-```
-...
-"start": "better-npm-run start:prod",
-"serve": "better-npm-run start",
-"postinstall": "npm run deploy:prod",
-"betterScripts": {
-  ...
-  "start:prod": {
-    "command": "babel-node bin/server",
-    "env": {
-      "NODE_ENV": "production"
-    }
-  }
-  ...
-},
-```
-
-It's also important to tell Heroku to install all `devDependencies` to successfully compile your app on Heroku's environment. Run the following in your terminal.
-
-```bash
-$ heroku config:set NPM_CONFIG_PRODUCTION=false
-```
-
-With this setup, you will install all the necessray packages, build your app, and start the webserver (e.g. koa) everytime you push your app to Heroku. Try to deploy to Heroku by running the following commands.
-
-```bash
-$ git add .
-$ git commit -m 'My awesome commit'
-$ git push heroku master
-```
-
-If you fail to deploy for an unknown reason, try [this helpful comment](https://github.com/davezuko/react-redux-starter-kit/issues/730#issuecomment-213997120) by [DonHansDampf](https://github.com/DonHansDampf) addressing Heroku deployments.
-
-Have more questions? Feel free to submit an issue or join the Gitter chat!
-
-## Build System
-
-### Configuration
-
-Default project configuration can be found in `~/config/index.js`. Here you'll be able to redefine your `src` and `dist` directories, adjust compilation settings, tweak your vendor dependencies, and more. For the most part, you should be able to make changes in here **without ever having to touch the actual webpack build configuration**.
-
-If you need environment-specific overrides (useful for dynamically setting API endpoints, for example), you can edit `~/config/environments.js` and define overrides on a per-NODE_ENV basis. There are examples for both `development` and `production`, so use those as guidelines. Here are some common configuration options:
-
-|Key|Description|
-|---|-----------|
-|`dir_src`|application source code base path|
-|`dir_dist`|path to build compiled application to|
-|`server_host`|hostname for the Koa server|
-|`server_port`|port for the Koa server|
-|`compiler_css_modules`|whether or not to enable CSS modules|
-|`compiler_devtool`|what type of source-maps to generate (set to `false`/`null` to disable)|
-|`compiler_vendor`|packages to separate into to the vendor bundle|
-
-
-### Root Resolve
-Webpack is configured to make use of [resolve.root](http://webpack.github.io/docs/configuration.html#resolve-root), which lets you import local packages as if you were traversing from the root of your `~/src` directory. Here's an example:
-
-```js
-// current file: ~/src/views/some/nested/View.js
-// What used to be this:
-import SomeComponent from '../../../components/SomeComponent'
-
-// Can now be this:
-import SomeComponent from 'components/SomeComponent' // Hooray!
-```
-
-### Globals
-
-These are global variables available to you anywhere in your source code. If you wish to modify them, they can be found as the `globals` key in `~/config/index.js`. When adding new globals, make sure you also add them to `~/.eslintrc`.
-
-|Variable|Description|
-|---|---|
-|`process.env.NODE_ENV`|the active `NODE_ENV` when the build started|
-|`__DEV__`|True when `process.env.NODE_ENV` is `development`|
-|`__PROD__`|True when `process.env.NODE_ENV` is `production`|
-|`__TEST__`|True when `process.env.NODE_ENV` is `test`|
-|`__DEBUG__`|True when `process.env.NODE_ENV` is `development` and cli arg `--no_debug` is not set (`npm run dev:no-debug`)|
-|`__BASENAME__`|[history basename option](https://github.com/rackt/history/blob/master/docs/BasenameSupport.md)|
-
-### Styles
-
-Both `.scss` and `.css` file extensions are supported out of the box and are configured to use [CSS Modules](https://github.com/css-modules/css-modules). After being imported, styles will be processed with [PostCSS](https://github.com/postcss/postcss) for minification and autoprefixing, and will be extracted to a `.css` file during production builds.
-
-### Server
-
-This starter kit comes packaged with an Koa server. It's important to note that the sole purpose of this server is to provide `webpack-dev-middleware` and `webpack-hot-middleware` for hot module replacement. Using a custom Koa app in place of [webpack-dev-server](https://github.com/webpack/webpack-dev-server) makes it easier to extend the starter kit to include functionality such as API's, universal rendering, and more -- all without bloating the base boilerplate.
-
-### Production Optimization
-
-Babel is configured to use [babel-plugin-transform-runtime](https://www.npmjs.com/package/babel-plugin-transform-runtime) so transforms aren't inlined. Additionally, in production, we use [react-optimize](https://github.com/thejameskyle/babel-react-optimize) to further optimize your React code.
-
-In production, webpack will extract styles to a `.css` file, minify your JavaScript, and perform additional optimizations such as module deduplication.
-
-## Learning Resources
-
-* [Starting out with react-redux-starter-kit](https://suspicious.website/2016/04/29/starting-out-with-react-redux-starter-kit/) is an introduction to the components used in this starter kit with a small example in the end.
-
-## FAQ
-
-Having trouble? Check out our [FAQ](https://github.com/davezuko/react-redux-starter-kit/wiki/FAQ:-Frequently-Asked-Questions) or submit an issue. Please be considerate by only posting issues that are directly related to this project; questions about how to implement certain React or Redux features are both best suited for StackOverflow or their respective repositories.
-
-## Thank You
-
-This project wouldn't be possible without help from the community, so I'd like to highlight some of its biggest contributors. Thank you all for your hard work, you've made my life a lot easier and taught me a lot in the process.
-
-* [Justin Greenberg](https://github.com/justingreenberg) - For all of your PR's, getting us to Babel 6, and constant work improving our patterns.
-* [Roman Pearah](https://github.com/neverfox) - For your bug reports, help in triaging issues, and PR contributions.
-* [Spencer Dixin](https://github.com/SpencerCDixon) - For your creation of [redux-cli](https://github.com/SpencerCDixon/redux-cli).
-* [Jonas Matser](https://github.com/mtsr) - For your help in triaging issues and unending support in our Gitter channel.
-
-And to everyone else who has contributed, even if you are not listed here your work is appreciated.
+Syntax errors are displayed in an overlay using **[@glenjamin](https://github.com/glenjamin)**’s **[webpack-hot-middleware](https://github.com/glenjamin/webpack-hot-middleware)**, which replaces Webpack Dev Server. This project **[does not](https://medium.com/@dan_abramov/the-death-of-react-hot-loader-765fa791d7c4)** use React Hot Loader.
