@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import MainBoard from '../components/MainBoard';
 
 export default class App extends Component {
   render() {
@@ -15,27 +15,7 @@ export default class App extends Component {
             Count: {count}
           </div>
         </div>
-        <div id="status-list">
-          {statuses.map( status => {
-            const { name, projects, count: statusCount } = status;
-            return (
-              <div className="status-col" key={name}>
-                <div className="title">
-                  <div className="name">{name}</div>
-                  <div className="count">{statusCount}</div>
-                </div>
-                <ul className="status-list">
-                  {projects.map( project => {
-                    const { name: projectName } = project;
-                    return (
-                      <li key={projectName}>{projectName}</li>
-                    );
-                  })}
-                </ul>
-              </div>
-            );
-          })}
-        </div>
+        <MainBoard statuses={statuses} />
       </div>
     );
   }
@@ -48,8 +28,13 @@ export default class App extends Component {
 
 function mapStateToProps(state) {
   const count = state.projects.length;
-  const statuses = state.statuses.map( name => {
-    const projects = state.projects.filter(({ status }) => name === status);
+  const statuses = state.statuses.map(name => {
+    const projects = state.projects
+                      .filter(({ status }) => name === status)
+                      .map(project => ({
+                        ...project,
+                        isDragging: project.name === state.draggingItem ? true : false,
+                      }));
     const count = projects.length;
     return { name, projects, count };
   });
@@ -60,12 +45,6 @@ function mapStateToProps(state) {
   };
 }
 
-// function mapDispatchToProps(dispatch) {
-//   return {
-//     actions: bindActionCreators(CounterActions, dispatch)
-//   };
-// }
 export default connect(
-  mapStateToProps
-  // ,mapDispatchToProps
+  mapStateToProps,
 )(App);

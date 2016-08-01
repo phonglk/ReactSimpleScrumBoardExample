@@ -10,7 +10,8 @@ const initialState = {
     { name: 'Project 8', status: 'Done' },
     { name: 'Project 9', status: 'Done' },
   ],
-  statuses: ['To do', 'In Progress', 'Done']
+  statuses: ['To do', 'In Progress', 'Done'],
+  draggingItem: null,
 };
 
 export default initialState;

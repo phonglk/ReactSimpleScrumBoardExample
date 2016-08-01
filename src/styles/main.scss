@@ -13,6 +13,10 @@ body {
   font-family: 'Raleway', sans-serif;
 }
 
+html, body, #root {
+  height: 100%;
+}
+
 .main-app-container {
 
 }
@@ -45,7 +49,10 @@ body {
     padding: 0;
     margin: 0;
     li{
-
+      cursor: move;
+      background-color: white;
+      padding: 10px 20px;
+      margin-bottom: 5px;
     }
   }
 }
