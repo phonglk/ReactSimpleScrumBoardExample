@@ -43,6 +43,10 @@ export default class App extends Component {
     }
   }
 
+  componentDidMount() {
+    setTimeout(() => this.refs.input.focus(), 500);
+  }
+
   render() {
     const { count, statuses } = this.props;
     return (
