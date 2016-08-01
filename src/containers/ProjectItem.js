@@ -71,12 +71,6 @@ const projectTarget = {
 
     // Time to actually perform the action
     props.actions.moveProject(dragItem, hoverItem);
-
-    // Note: we're mutating the monitor item here!
-    // Generally it's better to avoid mutations,
-    // but it's good here for the sake of performance
-    // to avoid expensive index searches.
-    // monitor.getItem().index = hoverIndex;
   }
 };
 

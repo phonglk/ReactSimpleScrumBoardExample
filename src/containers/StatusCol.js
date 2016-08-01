@@ -24,9 +24,13 @@ const colTarget = {
 
     if (monitor.isOver({ shallow: true })) {
       // Time to actually perform the action
-      const lastItem = props.projects[props.projects.length - 1];
-      console.log('drop');
-      props.actions.moveProject(dragItem, propsCollector(lastItem));
+      let lastItem = props.projects[props.projects.length - 1];
+      if (typeof lastItem === 'undefined') {
+        lastItem = { status: props.name, __new: true };
+      } else {
+        lastItem = propsCollector(lastItem);
+      }
+      props.actions.moveProject(dragItem, lastItem);
     }
   }
 };

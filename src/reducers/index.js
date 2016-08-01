@@ -33,7 +33,12 @@ export default function reducer(state = {}, action) {
       const { sourceProject, targetProject } = action;
       const findIndex = findProjectIndex.bind(null, state.projects);
       const sourceIndex = findIndex(sourceProject);
-      const targetIndex = findIndex(targetProject);
+      let targetIndex;
+      if (targetProject.__new === true) {
+        targetIndex = 0;
+      } else {
+        targetIndex = findIndex(targetProject);
+      }
 
       const migratedProject = { ...sourceProject, status: targetProject.status };
       const projects = state.projects.slice(0);
