@@ -1,3 +1,5 @@
+https://phonglk.github.io/ReactSimpleScrumBoardExample/
+
 # Simple React Scrumb Board Example
 This example use React and Redux JS to build a simple scrumboard 
 
