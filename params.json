@@ -1,0 +1,6 @@
+{
+  "name": "Reactsimplescrumboardexample",
+  "tagline": "Simple Scrum Board Example with React+Redux",
+  "body": "# Simple React Scrumb Board Example\r\nThis example use React and Redux JS to build a simple scrumboard \r\n\r\n## Some cases that is handled by this source code\r\n\r\n* Drop item into columns\r\n* Drop item into empty column\r\n* Check for duplicated name\r\n* Visual: indicate droppable column\r\n* Visual: reminder for adding project\r\n\r\n## Build Project\r\n`npm run build`\r\n\r\n## Development mode\r\n`npm run dev`\r\nThen go to http://localhost: 3000\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
