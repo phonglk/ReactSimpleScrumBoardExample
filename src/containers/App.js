@@ -16,6 +16,7 @@ export default class App extends Component {
     super(props);
     this.state = {
       projectInput: '',
+      reminder: '',
     };
   }
 
@@ -25,7 +26,7 @@ export default class App extends Component {
       const project = this.state.projectInput.trim();
       if (project !== '') {
         this.props.dispatch(addProject(project));
-        this.setState({ projectInput: '' });
+        this.setState({ projectInput: '', reminder: '' });
         setTimeout(() => this.refs.input.focus(), 300);
       }
     }
@@ -33,7 +34,13 @@ export default class App extends Component {
 
   @autobind
   handleChange(event) {
-    this.setState({ projectInput: event.target.value });
+    const input = event.target.value;
+    this.setState({ projectInput: input });
+    if (input.trim() !== '') {
+      this.setState({ reminder: 'press enter to add' });
+    } else {
+      this.setState({ reminder: '' });
+    }
   }
 
   render() {
@@ -51,6 +58,7 @@ export default class App extends Component {
               onChange={this.handleChange}
               onKeyPress={this.handleKeyPress}
             />
+            &nbsp;{this.state.reminder}
           </div>
           <div className="project-stats">
             TOTAL <div><span className="count">{count}</span>PROJECTS</div>
