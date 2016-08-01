@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { autobind } from 'core-decorators';
 import MainBoard from '../components/MainBoard';
 import { addProject } from '../actions/BoardActions';
+import DragRules from '../constants/DragRules';
 
 export default class App extends Component {
   static propTypes = {
@@ -68,10 +69,20 @@ function mapStateToProps(state) {
                       .filter(({ status }) => name === status)
                       .map(project => ({
                         ...project,
-                        isDragging: project.name === state.draggingItem ? true : false,
+                        isDragging: state.draggingItem && project.name === state.draggingItem.name
+                        ? true : false,
                       }));
-    const count = projects.length;
-    return { name, projects, count };
+    const localCount = projects.length;
+    let isDroppable = 'none';
+    if (state.draggingItem !== null) {
+      if (DragRules[state.draggingItem.status].indexOf(name) > -1) {
+        isDroppable = 'yes';
+      } else {
+        isDroppable = 'no';
+      }
+    }
+
+    return { name, projects, count: localCount, isDroppable };
   });
 
   return {

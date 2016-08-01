@@ -48,7 +48,7 @@ export default function reducer(state = {}, action) {
     case START_DRAG_PROJECT:
       return {
         ...state,
-        draggingItem: action.project.name,
+        draggingItem: action.project,
       };
 
     case END_DRAG_PROJECT:

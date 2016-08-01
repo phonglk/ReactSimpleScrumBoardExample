@@ -63,6 +63,15 @@ span.count{
   .status-col{
     flex: 1 1 auto;
     margin: 10px;
+    transition: all 0.3s;
+
+    &.drag-yes {
+      box-shadow: 0 0 10px green;
+    }
+    &.drag-no {
+      box-shadow: 0 0 10px red;
+    }
+
     .title{
       display: flex;
       background: #808080;

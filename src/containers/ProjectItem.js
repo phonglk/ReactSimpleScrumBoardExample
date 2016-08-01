@@ -100,7 +100,7 @@ class ProjectItem extends Component {
   render() {
     const { name, isDragging, connectDragSource,
       connectDropTarget } = this.props;
-    const opacity = isDragging === true ? 0.3 : 1;
+    const opacity = isDragging === true ? 0.6 : 1;
     return connectDragSource(connectDropTarget(
       <li style={{ opacity }}>{name}</li>
     ));
