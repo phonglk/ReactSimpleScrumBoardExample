@@ -2,6 +2,7 @@ import {
   MOVE_PROJECT,
   START_DRAG_PROJECT,
   END_DRAG_PROJECT,
+  ADD_PROJECT,
 } from '../constants/ActionTypes';
 
 export function moveProject(sourceProject, targetProject) {
@@ -9,6 +10,13 @@ export function moveProject(sourceProject, targetProject) {
     type: MOVE_PROJECT,
     sourceProject,
     targetProject,
+  };
+}
+
+export function addProject(project) {
+  return {
+    type: ADD_PROJECT,
+    project,
   };
 }
 

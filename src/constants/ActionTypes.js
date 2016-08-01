@@ -1,3 +1,4 @@
+export const ADD_PROJECT = 'ADD_PROJECT';
 export const MOVE_PROJECT = 'MOVE_PROJECT';
 export const START_DRAG_PROJECT = 'START_DRAG_PROJECT';
 export const END_DRAG_PROJECT = 'END_DRAG_PROJECT';

@@ -1,4 +1,5 @@
 import {
+  ADD_PROJECT,
   MOVE_PROJECT,
   START_DRAG_PROJECT,
   END_DRAG_PROJECT,
@@ -12,6 +13,22 @@ function findProjectIndex(projects, project) {
 
 export default function reducer(state = {}, action) {
   switch (action.type) {
+    case ADD_PROJECT: {
+      if (state.projects.find(({ name }) => action.project === name)) {
+        /* eslint-disable no-alert */
+        alert(`Project '${action.project}' is already in the list`);
+        return state;
+      }
+      const projects = state.projects.slice(0);
+      projects.push({
+        name: action.project,
+        status: 'To do',
+      });
+      return {
+        ...state,
+        projects
+      };
+    }
     case MOVE_PROJECT: {
       const { sourceProject, targetProject } = action;
       const findIndex = findProjectIndex.bind(null, state.projects);
