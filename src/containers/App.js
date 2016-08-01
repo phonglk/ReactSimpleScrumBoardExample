@@ -52,7 +52,7 @@ export default class App extends Component {
             />
           </div>
           <div className="project-stats">
-            Count: {count}
+            TOTAL <div><span className="count">{count}</span>PROJECTS</div>
           </div>
         </div>
         <MainBoard statuses={statuses} />

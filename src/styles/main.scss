@@ -16,7 +16,21 @@ body {
 html, body, #root {
   height: 100%;
 }
-
+span.count{
+  color: black;
+  font-weight: bold;
+  display: block;
+}
+@mixin stats-box {
+  font-size: 12px;
+  text-align: center;
+  color: #666;
+  width: 100%;
+  background: #fff;
+  border-radius: 5px;
+  padding: 5px 2px;
+  box-shadow: inset 1px 1px 1px #666;
+}
 .main-app-container {
 
 }
@@ -26,13 +40,22 @@ html, body, #root {
   .add-wrapper {
     flex: 1 1 auto;
     margin-left: 10px;
+    line-height: 20px;
+    font-size: 18px;
     input {
       margin-left: 10px;
       padding: 3px 5px;
+      line-height: 18px;
+      font-size: 16px;
     }
   }
   .project-stats {
-    flex-basis: 100px;
+    text-align: center;
+    flex-basis: 80px;
+    margin-right: 20px;
+    > div {
+      @include stats-box;
+    }
   }
 }
 #status-list {
@@ -42,11 +65,20 @@ html, body, #root {
     margin: 10px;
     .title{
       display: flex;
+      background: #808080;
+      margin-bottom: 5px;
+      padding: 10px;
+      box-sizing: border-box;
       .name{
         flex: 1 1 auto;
+        font-size: 26px;
+        line-height: 30px;
+        color: white;
+        text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.4);
       }
-      .count{
+      div.count{
         flex-basis: 70px;
+        @include stats-box;
       }
     }
     ul.status-list{

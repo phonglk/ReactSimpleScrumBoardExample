@@ -14,7 +14,10 @@ export default class StatusCol extends Component {
       <div className="status-col">
         <div className="title">
           <div className="name">{name}</div>
-          <div className="count">{count}</div>
+          <div className="count">
+            <span className="count">{count}</span>
+            PROJECTS
+          </div>
         </div>
         <ul className="status-list">
           {projects.map((project, index) =>
