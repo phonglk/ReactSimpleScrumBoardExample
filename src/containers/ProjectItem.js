@@ -9,7 +9,7 @@ import * as BoardActions from '../actions/BoardActions';
 // import _ from 'lodash';
 
 // reference: https://github.com/gaearon/react-dnd/blob/master/examples/04%20Sortable/Simple/Card.js
-const propsCollector = ({ name, index, status, isDragging }) =>
+export const propsCollector = ({ name, index, status, isDragging }) =>
                         ({ name, index, status, isDragging });
 
 const projectSource = {
