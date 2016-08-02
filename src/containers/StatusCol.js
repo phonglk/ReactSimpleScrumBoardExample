@@ -17,7 +17,7 @@ const colTarget = {
     const draggingStatus = dragItem.status;
     const hoveringStatus = props.name;
 
-    if (draggingStatus === hoveringStatus) return;
+    if (typeof props.projects.find(({ name }) => name === dragItem.name) !== 'undefined') return;
     if (DragRules[draggingStatus].indexOf(hoveringStatus) === -1) {
       return;
     }
